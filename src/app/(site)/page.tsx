@@ -9,6 +9,9 @@ import {
   Lock, StarBurst, Sparkle, WaGlyph,
 } from "@/components/icons";
 
+// Content is DB-backed and admin-editable; render per request (and keep builds DB-free).
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const packages = (await getVisiblePackages()).slice(0, 3);
   const reviews = (await getReviews()).slice(0, 3);

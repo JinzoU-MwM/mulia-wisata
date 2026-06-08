@@ -1,4 +1,4 @@
-import "dotenv/config";
+import "./load-env";
 import { createClient } from "@libsql/client";
 import { eq } from "drizzle-orm";
 import { createTables } from "./ddl";

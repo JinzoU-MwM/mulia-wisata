@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Hubungi tim konsultan Mulia Indah Wisata via WhatsApp, telepon, email, atau kunjungi kantor kami di Jakarta Pusat. Lihat juga pertanyaan yang sering diajukan.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function KontakPage() {
   const faqs = await getFaqs();
 

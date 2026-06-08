@@ -1,4 +1,4 @@
-import "dotenv/config";
+import "./load-env";
 import { db } from "./index";
 import { packages, reviews, posts, faqs, inquiries, promo } from "./schema";
 import { buildDefaultDetail } from "../package-details";

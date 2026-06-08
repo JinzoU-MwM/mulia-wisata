@@ -100,6 +100,22 @@ image) use **file uploads with live previews** — no need to paste URLs.
   so uploaded images survive redeploys. The folder is created automatically and must be writable by the app.
 - Existing seed images use Unsplash URLs; they keep working and show as previews until you replace them.
 
+## Deploying to a VPS
+
+- The **production build does not need a database** — all DB-backed pages render dynamically, and the DB
+  client connects lazily, so `npm run build` works before the DB exists.
+- Put production settings in **`.env.production`** (e.g. `DATABASE_URL="file:./data/local.db"`,
+  `UPLOAD_DIR=...`, a strong `BETTER_AUTH_SECRET`). `next start` loads it automatically.
+- The DB scripts honour `NODE_ENV`, so on the server initialise the database with the production env:
+
+  ```bash
+  NODE_ENV=production npm run db:setup   # creates ./data/local.db (parent dir auto-created) + seed + admin
+  npm run build
+  npm start
+  ```
+- Keep `data/` (the SQLite DB) and `uploads/` (images) on a **persistent volume** so they survive redeploys.
+  `output: "standalone"` is enabled for lean Docker/VPS deploys.
+
 ## Scripts
 
 | Command | Description |
