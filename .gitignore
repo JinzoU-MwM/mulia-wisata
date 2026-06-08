@@ -1,0 +1,34 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# database
+*.db
+*.db-journal
+local.db*
+
+# uploaded media (keep the folder, ignore its contents)
+/uploads/*
+!/uploads/.gitkeep
+
+# env
+.env
+.env*.local
+
+# design handoff bundle (not part of the app)
+/.design_tmp
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+.vscode/
