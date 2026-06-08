@@ -352,9 +352,50 @@ a:hover { color: var(--gold-600); }
 .page-hero .arabic-quote { font-family: var(--font-arabic); color: var(--gold-400); font-size: 1.8rem; margin-bottom: 14px; display: block; }
 .page-hero p { color: rgba(245, 239, 223, 0.78); max-width: 620px; margin: 18px auto 0; font-size: 1.05rem; }
 
+/* ============== Mobile nav (hamburger) ============== */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--cream-200);
+  border-radius: 10px;
+  color: var(--emerald-800);
+  cursor: pointer;
+}
+.nav-toggle svg { width: 24px; height: 24px; }
+.mobile-menu {
+  border-top: 1px solid var(--cream-200);
+  background: var(--cream-50);
+  box-shadow: var(--shadow-md);
+  animation: mm-down .18s ease;
+}
+@keyframes mm-down { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.mobile-menu nav { display: flex; flex-direction: column; padding: 10px 24px 22px; }
+.mobile-menu nav a {
+  padding: 14px 6px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink-700);
+  border-bottom: 1px solid var(--cream-100);
+}
+.mobile-menu nav a.active { color: var(--emerald-700); }
+.mobile-menu nav .btn { margin-top: 16px; justify-content: center; padding: 14px; }
+.mobile-menu nav .mobile-call {
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--emerald-700);
+  border: none;
+  padding: 6px;
+}
+
 /* ============== Responsive (shared) ============== */
 @media (max-width: 960px) {
   .nav { display: none; }
+  .nav-toggle { display: inline-flex; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .section { padding: 60px 0; }
 }
@@ -363,4 +404,14 @@ a:hover { color: var(--gold-600); }
   .footer-grid { grid-template-columns: 1fr; }
   .wa-float span:not(.wa-icon):not(.wa-pulse) { display: none; }
   .wa-float { padding: 14px; }
+
+  .container { padding: 0 18px; }
+  .site-header .container { height: 70px; }
+  .logo-mark { width: 42px; height: 42px; }
+  .logo-text .brand { font-size: 1.2rem; }
+  .logo-text .tagline { font-size: 0.62rem; letter-spacing: 0.18em; }
+  .section { padding: 46px 0; }
+  .page-hero { padding: 56px 0 64px; }
+  .section-title { margin-bottom: 36px; }
+  .btn { padding: 13px 22px; }
 }

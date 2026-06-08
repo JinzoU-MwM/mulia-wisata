@@ -29,16 +29,20 @@ export function AdminSidebar({
   counts,
   adminName,
   adminEmail,
+  open = false,
+  onNavigate,
 }: {
   counts: Counts;
   adminName: string;
   adminEmail: string;
+  open?: boolean;
+  onNavigate?: () => void;
 }) {
   const pathname = usePathname();
   const active = (href: string) => pathname === href || pathname.startsWith(href + "/");
 
   const link = (href: string, icon: React.ReactNode, label: string, count?: number) => (
-    <Link href={href} className={`nav-link ${active(href) ? "active" : ""}`}>
+    <Link href={href} className={`nav-link ${active(href) ? "active" : ""}`} onClick={onNavigate}>
       {icon}
       {label}
       {count != null && count > 0 && <span className="count">{count}</span>}
@@ -46,7 +50,7 @@ export function AdminSidebar({
   );
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${open ? "open" : ""}`}>
       <div className="brand">
         <LogoMark variant="gold" />
         <div>
