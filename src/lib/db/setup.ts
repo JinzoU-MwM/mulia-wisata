@@ -9,8 +9,8 @@ import { auth } from "../auth";
 
 async function main() {
   const url = process.env.DATABASE_URL ?? "file:./local.db";
-  const email = process.env.ADMIN_EMAIL ?? "admin@muliaindahwisata.id";
-  const password = process.env.ADMIN_PASSWORD ?? "MuliaIndah#2026";
+  const email = process.env.ADMIN_EMAIL ?? "admin@muhiyahglobaltravel.id";
+  const password = process.env.ADMIN_PASSWORD ?? "MuhiyahGlobal#2026";
   const name = process.env.ADMIN_NAME ?? "H. Faisal R.";
 
   console.log("→ Creating tables…");

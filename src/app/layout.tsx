@@ -23,8 +23,8 @@ const amiri = Amiri({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mulia Indah Wisata — Travel Umrah & Haji Terpercaya",
-    template: "%s — Mulia Indah Wisata",
+    default: "Muhiyah Global Travel — Travel Umrah & Haji Terpercaya",
+    template: "%s — Muhiyah Global Travel",
   },
   description:
     "Travel umrah dan haji terpercaya, melayani jamaah Indonesia sejak 2010 dengan amanah dan profesional. Bimbingan ustadz, hotel pilihan, dan pelayanan menyeluruh.",

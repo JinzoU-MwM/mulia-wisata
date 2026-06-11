@@ -80,7 +80,7 @@ export function ContactForm() {
         <div className="checkbox-line">
           <input type="checkbox" id="consent" name="consent" defaultChecked />
           <label htmlFor="consent">
-            Saya setuju untuk dihubungi oleh tim Mulia Indah Wisata terkait konsultasi paket
+            Saya setuju untuk dihubungi oleh tim Muhiyah Global Travel terkait konsultasi paket
             perjalanan ibadah.
           </label>
         </div>

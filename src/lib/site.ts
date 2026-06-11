@@ -9,13 +9,13 @@ export function waLink(message?: string) {
 }
 
 export const COMPANY = {
-  name: "Mulia Indah Wisata",
-  legalName: "PT Mulia Indah Wisata",
+  name: "Muhiyah Global Travel",
+  legalName: "PT Muhiyah Global Travel",
   tagline: "Umrah · Haji · Tour Muslim",
   phoneOffice: "+62 21 8888 0001",
   phoneWa: "+62 812 3456 7890",
-  email: "hello@muliaindahwisata.id",
-  emailCs: "cs@muliaindahwisata.id",
+  email: "hello@muhiyahglobaltravel.id",
+  emailCs: "cs@muhiyahglobaltravel.id",
   addressLines: ["Gedung Mulia Lt. 12", "Jl. Sudirman Kav. 9", "Jakarta Pusat 10220"],
   city: "Jakarta Pusat, ID",
   certs: ["PPIU 472", "AMPHURI", "IATA", "ISO 9001"],

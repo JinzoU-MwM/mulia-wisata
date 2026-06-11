@@ -5,7 +5,7 @@ import { getDashboardStats } from "@/lib/queries";
 import { AdminShell } from "@/components/admin/admin-shell";
 
 export const metadata: Metadata = {
-  title: { default: "Admin", template: "%s — Admin Mulia Indah" },
+  title: { default: "Admin", template: "%s — Admin Muhiyah Global" },
   robots: { index: false, follow: false },
 };
 

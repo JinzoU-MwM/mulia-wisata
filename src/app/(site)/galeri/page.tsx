@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const TIMELINE = [
-  { year: "2010", title: "Pendirian Mulia Indah Wisata", desc: "Memberangkatkan rombongan Umrah pertama dengan 23 jamaah dari Jakarta.", side: "left" },
+  { year: "2010", title: "Pendirian Muhiyah Global Travel", desc: "Memberangkatkan rombongan Umrah pertama dengan 23 jamaah dari Jakarta.", side: "left" },
   { year: "2013", title: "Mendapat Izin PPIU Kemenag RI", desc: "Resmi terdaftar sebagai Penyelenggara Perjalanan Ibadah Umrah dengan nomor izin 472.", side: "right" },
   { year: "2016", title: "1.000 Jamaah Pertama", desc: "Melayani jamaah ke-1.000 dan membuka cabang representatif di Surabaya.", side: "left" },
   { year: "2019", title: "Resmi sebagai Anggota AMPHURI", desc: "Bergabung dengan Asosiasi Muslim Penyelenggara Haji & Umrah Republik Indonesia.", side: "right" },
@@ -70,7 +70,7 @@ export default async function GaleriPage() {
             <div className="story-text">
               <span className="eyebrow left">Cerita Kami</span>
               <h2>Berawal dari Niat untuk Memuliakan Tamu-Tamu Allah</h2>
-              <p>Mulia Indah Wisata didirikan pada tahun 2010 oleh sekelompok profesional muslim Indonesia yang merasakan langsung kesulitan calon jamaah dalam mencari biro perjalanan yang amanah dan transparan.</p>
+              <p>Muhiyah Global Travel didirikan pada tahun 2010 oleh sekelompok profesional muslim Indonesia yang merasakan langsung kesulitan calon jamaah dalam mencari biro perjalanan yang amanah dan transparan.</p>
               <p>Kami percaya bahwa mengantar seseorang ke Tanah Suci bukan sekadar bisnis perjalanan. Ini adalah amanah untuk membantu sesama muslim menjawab panggilan Allah SWT. Karena itu, setiap detail dari pemilihan hotel, pembimbing ibadah, hingga makanan kami persiapkan dengan standar yang sama seperti untuk keluarga sendiri.</p>
               <p>Hari ini, dengan lebih dari 8.500 jamaah yang telah berangkat bersama kami, amanah itu menjadi semakin besar — dan menjadi pengingat untuk terus melayani dengan ihsan.</p>
               <div className="signature">

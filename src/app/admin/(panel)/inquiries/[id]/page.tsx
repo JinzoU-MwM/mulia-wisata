@@ -73,7 +73,7 @@ export default async function InquiryDetailPage({ params }: { params: Promise<{ 
             <div className="dfield">
               <div className="k">Balas</div>
               <a
-                href={waLink(`Assalamualaikum ${inq.name}, terima kasih atas inquiry Anda di Mulia Indah Wisata.`)}
+                href={waLink(`Assalamualaikum ${inq.name}, terima kasih atas inquiry Anda di Muhiyah Global Travel.`)}
                 className="btn-secondary"
                 style={{ marginTop: 8, color: "#25d366", borderColor: "#bfeccd" }}
                 target="_blank"

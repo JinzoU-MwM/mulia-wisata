@@ -18,7 +18,7 @@ export const auth = betterAuth({
     requireEmailVerification: false,
     minPasswordLength: 8,
   },
-  secret: process.env.BETTER_AUTH_SECRET ?? "dev-secret-mulia-indah-wisata-change-me-32+",
+  secret: process.env.BETTER_AUTH_SECRET ?? "dev-secret-muhiyah-global-travel-change-me-32+",
   baseURL: process.env.BETTER_AUTH_URL ?? "http://localhost:3000",
   session: {
     expiresIn: 60 * 60 * 24 * 7, // 7 days

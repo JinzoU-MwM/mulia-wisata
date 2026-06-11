@@ -90,7 +90,7 @@ const REVIEWS = [
   { id: "rev-1", authorName: "Hj. Siti Halimah", initials: "SH", rating: 5, packageLabel: "Umrah Reguler · Maret 2026",
     comment: "Alhamdulillah, pelayanan dari awal sampai kepulangan sangat memuaskan. Ustadz pembimbing sabar membimbing seluruh ibadah. Hotel sangat dekat dengan Masjidil Haram." },
   { id: "rev-2", authorName: "H. Bambang Rachman", initials: "BR", rating: 5, packageLabel: "Paket Keluarga · Februari 2026",
-    comment: "Saya membawa keluarga besar termasuk lansia. Tim Mulia Indah sangat memperhatikan kondisi orang tua kami. Insya Allah akan kembali untuk Haji Plus tahun depan." },
+    comment: "Saya membawa keluarga besar termasuk lansia. Tim Muhiyah Global sangat memperhatikan kondisi orang tua kami. Insya Allah akan kembali untuk Haji Plus tahun depan." },
   { id: "rev-3", authorName: "Andi Nurhakim", initials: "AN", rating: 5, packageLabel: "Umrah Plus Turki · Januari 2026",
     comment: "Pelayanan kelas premium dari briefing pra-keberangkatan sampai program ziarah. Detail dipikirkan, koper sampai duluan ke kamar. Sangat amanah." },
 ];

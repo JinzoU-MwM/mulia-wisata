@@ -54,7 +54,7 @@ export function AdminSidebar({
       <div className="brand">
         <LogoMark variant="gold" />
         <div>
-          <div className="name">Mulia Indah</div>
+          <div className="name">Muhiyah Global</div>
           <div className="role">Admin</div>
         </div>
       </div>

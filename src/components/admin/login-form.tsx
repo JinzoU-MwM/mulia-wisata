@@ -8,7 +8,7 @@ import { ArrowLeft, Mail, Lock, Eye, ArrowRight, Shield } from "@/components/ico
 
 export function LoginForm() {
   const router = useRouter();
-  const [email, setEmail] = useState("admin@muliaindahwisata.id");
+  const [email, setEmail] = useState("admin@muhiyahglobaltravel.id");
   const [password, setPassword] = useState("");
   const [showPwd, setShowPwd] = useState(false);
   const [remember, setRemember] = useState(true);
@@ -50,7 +50,7 @@ export function LoginForm() {
           <input
             id="email"
             type="email"
-            placeholder="admin@muliaindahwisata.id"
+            placeholder="admin@muhiyahglobaltravel.id"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -105,11 +105,11 @@ export function LoginForm() {
       <div className="divider">atau</div>
 
       <p className="support">
-        Butuh bantuan akses? <a href="mailto:tech@muliaindahwisata.id">Hubungi IT Support</a>
+        Butuh bantuan akses? <a href="mailto:tech@muhiyahglobaltravel.id">Hubungi IT Support</a>
       </p>
 
       <div className="login-hint">
-        Demo: <strong>admin@muliaindahwisata.id</strong> / <strong>MuliaIndah#2026</strong>
+        Demo: <strong>admin@muhiyahglobaltravel.id</strong> / <strong>MuhiyahGlobal#2026</strong>
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ export default async function AdminLoginPage() {
           <div className="art-logo">
             <LogoMark variant="gold" />
             <div>
-              <div className="brand">Mulia Indah Wisata</div>
+              <div className="brand">Muhiyah Global Travel</div>
               <div className="tag">Admin Console</div>
             </div>
           </div>
@@ -31,12 +31,12 @@ export default async function AdminLoginPage() {
             <h2>Panel Manajemen Internal</h2>
             <p>
               Kelola paket perjalanan, inquiry calon jamaah, artikel, dan FAQ dari satu dashboard.
-              Akses terbatas untuk staf resmi PT Mulia Indah Wisata.
+              Akses terbatas untuk staf resmi PT Muhiyah Global Travel.
             </p>
           </div>
 
           <div className="art-footer">
-            <span>© 2026 Mulia Indah Wisata</span>
+            <span>© 2026 Muhiyah Global Travel</span>
             <span><span className="dot">·</span>Better Auth Secured<span className="dot">·</span>v2.4.1</span>
           </div>
         </div>

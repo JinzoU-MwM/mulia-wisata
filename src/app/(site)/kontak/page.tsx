@@ -11,7 +11,7 @@ import { MessageSquare, Phone, Mail, MapPin, WaGlyph } from "@/components/icons"
 export const metadata: Metadata = {
   title: "Kontak & FAQ",
   description:
-    "Hubungi tim konsultan Mulia Indah Wisata via WhatsApp, telepon, email, atau kunjungi kantor kami di Jakarta Pusat. Lihat juga pertanyaan yang sering diajukan.",
+    "Hubungi tim konsultan Muhiyah Global Travel via WhatsApp, telepon, email, atau kunjungi kantor kami di Jakarta Pusat. Lihat juga pertanyaan yang sering diajukan.",
 };
 
 export const dynamic = "force-dynamic";
@@ -134,7 +134,7 @@ export default async function KontakPage() {
                 </svg>
                 <div className="pin">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C7 0 3 4 3 9c0 6 9 15 9 15s9-9 9-15c0-5-4-9-9-9zm0 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" /></svg>
-                  Kantor Mulia Indah Wisata
+                  Kantor Muhiyah Global Travel
                 </div>
               </div>
             </div>

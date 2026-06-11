@@ -84,7 +84,7 @@ export default async function InquiriesPage({
                         <form action={updateInquiryStatus.bind(null, inq.id, nextStatus(inq.status))}>
                           <button className="icon-mini" title="Ubah status"><Check /></button>
                         </form>
-                        <a className="icon-mini" title="Balas via WhatsApp" style={{ color: "#25d366" }} href={waLink(`Assalamualaikum ${inq.name}, terima kasih atas inquiry Anda di Mulia Indah Wisata.`)} target="_blank" rel="noopener noreferrer"><MessageSquare /></a>
+                        <a className="icon-mini" title="Balas via WhatsApp" style={{ color: "#25d366" }} href={waLink(`Assalamualaikum ${inq.name}, terima kasih atas inquiry Anda di Muhiyah Global Travel.`)} target="_blank" rel="noopener noreferrer"><MessageSquare /></a>
                         <form action={deleteInquiryAction.bind(null, inq.id)}>
                           <ConfirmSubmit className="icon-mini danger" title="Hapus" message={`Hapus inquiry dari ${inq.name}?`}><Trash /></ConfirmSubmit>
                         </form>
