@@ -14,8 +14,6 @@ export const metadata: Metadata = {
     "Tujuh program perjalanan ibadah Umrah & Haji disesuaikan dengan kebutuhan, anggaran, dan momen istimewa Anda dan keluarga.",
 };
 
-export const dynamic = "force-dynamic";
-
 export default async function PaketPage() {
   const packages = await getVisiblePackages();
 

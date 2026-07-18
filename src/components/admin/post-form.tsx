@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Post } from "@/lib/db/schema";
 import { Check } from "@/components/icons";
 import { ImageUpload } from "@/components/admin/media-inputs";
+import { DEMO_READONLY, DEMO_READONLY_MESSAGE } from "@/lib/demo";
 
 export function PostForm({
   action,
@@ -44,7 +45,7 @@ export function PostForm({
 
       <div className="form-actions">
         <Link href="/admin/posts" className="btn-secondary">Batal</Link>
-        <button type="submit" className="add-btn"><Check /> {submitLabel}</button>
+        <button type="submit" className="add-btn" disabled={DEMO_READONLY} title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : undefined}><Check /> {submitLabel}</button>
       </div>
     </form>
   );

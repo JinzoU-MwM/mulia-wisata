@@ -1,66 +1,37 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
-import { eq } from "drizzle-orm";
-import { db } from "@/lib/db";
-import { packages, inquiries, promo } from "@/lib/db/schema";
 import { requireAuth } from "@/lib/auth-server";
+import { DEMO_READONLY_MESSAGE } from "@/lib/demo";
+
+/**
+ * Mode demo — data bersifat read-only.
+ * Aksi-aksi berikut dipertahankan agar UI admin tetap utuh, tetapi tidak
+ * menulis data apa pun (lihat `src/lib/demo.ts`).
+ */
+function noop(action: string) {
+  console.info(`[demo] ${action} diabaikan — ${DEMO_READONLY_MESSAGE}`);
+}
 
 /** Toggle a package's visibility (Tampil / Sembunyi). Protected. */
-export async function togglePackageVisibility(id: string, next: boolean) {
+export async function togglePackageVisibility(_id: string, _next: boolean) {
   await requireAuth();
-  await db.update(packages).set({ isVisible: next }).where(eq(packages.id, id));
-  revalidatePath("/admin/dashboard");
-  revalidatePath("/paket");
+  noop("togglePackageVisibility");
 }
 
 /** Delete a package. Protected. */
-export async function deletePackage(id: string) {
+export async function deletePackage(_id: string) {
   await requireAuth();
-  // Detach inquiries to avoid FK constraint failure.
-  await db.update(inquiries).set({ packageId: null }).where(eq(inquiries.packageId, id));
-  await db.delete(packages).where(eq(packages.id, id));
-  revalidatePath("/admin/dashboard");
-  revalidatePath("/paket");
+  noop("deletePackage");
 }
 
 /** Update the homepage promo pop-up. Protected. Invoked from a <form>. */
-export async function updatePromo(formData: FormData) {
+export async function updatePromo(_formData: FormData) {
   await requireAuth();
-  const str = (k: string) => String(formData.get(k) ?? "").trim();
-  const features = str("features")
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean);
-
-  const values = {
-    enabled: formData.get("enabled") != null,
-    eyebrow: str("eyebrow") || null,
-    title: str("title") || "Promo",
-    subtitle: str("subtitle") || null,
-    imageUrl: str("imageUrl") || null,
-    fromLabel: str("fromLabel") || null,
-    strikeLabel: str("strikeLabel") || null,
-    priceLabel: str("priceLabel") || null,
-    features,
-    ctaLabel: str("ctaLabel") || "Lihat Detail",
-    ctaHref: str("ctaHref") || "/paket",
-    updatedAt: new Date(),
-  };
-
-  await db
-    .insert(promo)
-    .values({ id: "popup", ...values })
-    .onConflictDoUpdate({ target: promo.id, set: values });
-
-  revalidatePath("/");
-  revalidatePath("/admin/dashboard");
-  revalidatePath("/admin/promo");
+  noop("updatePromo");
 }
 
 /** Cycle an inquiry's status: pending → contacted → resolved → pending. Protected. */
-export async function updateInquiryStatus(id: string, status: string) {
+export async function updateInquiryStatus(_id: string, _status: string) {
   await requireAuth();
-  await db.update(inquiries).set({ status }).where(eq(inquiries.id, id));
-  revalidatePath("/admin/dashboard");
+  noop("updateInquiryStatus");
 }

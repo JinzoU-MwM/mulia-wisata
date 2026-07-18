@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import "@/styles/paket-detail.css";
-import { getPackageBySlug } from "@/lib/queries";
+import { getAllPackages, getPackageBySlug } from "@/lib/queries";
 import { getPackageDetail } from "@/lib/package-details";
 import { badgeClass, waLink } from "@/lib/site";
 import {
@@ -10,8 +10,10 @@ import {
   MapPin, Download, Shield, Sparkle, WaGlyph,
 } from "@/components/icons";
 
-// Detail content is admin-editable, so always render from the current DB state.
-export const dynamic = "force-dynamic";
+/** Konten dibekukan pada `static-data.ts`, jadi seluruh halaman detail bisa di-prerender. */
+export async function generateStaticParams() {
+  return (await getAllPackages()).map((pkg) => ({ slug: pkg.slug }));
+}
 
 export async function generateMetadata({
   params,

@@ -39,8 +39,6 @@ const TEAM = [
   { initials: "MR", name: "H. Muhammad Rizki", role: "Operasional Lapangan", bio: "Koordinator handling jamaah di Tanah Suci selama 10 tahun.", emerald: false },
 ];
 
-export const dynamic = "force-dynamic";
-
 export default async function GaleriPage() {
   const reviews = (await getReviews()).slice(0, 3);
 

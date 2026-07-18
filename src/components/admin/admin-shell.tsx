@@ -17,11 +17,13 @@ export function AdminShell({
   counts,
   adminName,
   adminEmail,
+  demoReadOnly = false,
   children,
 }: {
   counts: Counts;
   adminName: string;
   adminEmail: string;
+  demoReadOnly?: boolean;
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
@@ -67,6 +69,17 @@ export function AdminShell({
               </Link>
             </div>
           </header>
+
+          {demoReadOnly && (
+            <div className="demo-banner" role="status">
+              <span className="demo-tag">Demo</span>
+              <p>
+                <strong>Mode demo — data bersifat read-only.</strong> Seluruh konten di bawah ini
+                adalah data contoh yang dibekukan. Anda dapat menjelajah setiap halaman, namun
+                tombol simpan, unggah, dan hapus dinonaktifkan.
+              </p>
+            </div>
+          )}
 
           {children}
         </main>

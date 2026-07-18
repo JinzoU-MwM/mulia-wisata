@@ -3,6 +3,7 @@ import { getPromo } from "@/lib/queries";
 import { updatePromo } from "@/lib/actions/admin";
 import { Check, ExternalLink } from "@/components/icons";
 import { ImageUpload } from "@/components/admin/media-inputs";
+import { DEMO_READONLY, DEMO_READONLY_MESSAGE } from "@/lib/demo";
 
 export const metadata = { title: "Promo Pop-up" };
 
@@ -65,7 +66,7 @@ export default async function PromoPage() {
         </div>
 
         <div className="form-actions">
-          <button className="add-btn" type="submit"><Check /> Simpan Promo</button>
+          <button className="add-btn" type="submit" disabled={DEMO_READONLY} title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : undefined}><Check /> Simpan Promo</button>
         </div>
       </form>
     </div>

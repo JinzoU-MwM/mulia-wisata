@@ -59,6 +59,16 @@
 .admin-shell .add-btn:hover { background: var(--emerald-800); color: var(--gold-400); }
 .admin-shell .add-btn svg { width: 14px; height: 14px; }
 
+/* ---- Demo read-only banner ---- */
+.admin-shell .demo-banner { display: flex; align-items: flex-start; gap: 12px; margin: 24px 32px -8px; padding: 14px 18px; border: 1px solid var(--gold-500); border-left: 3px solid var(--gold-500); border-radius: 10px; background: linear-gradient(90deg, rgba(201, 165, 92, 0.12), rgba(201, 165, 92, 0.04)); }
+.admin-shell .demo-banner .demo-tag { flex-shrink: 0; background: var(--gold-500); color: var(--emerald-900); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; margin-top: 1px; }
+.admin-shell .demo-banner p { margin: 0; font-size: 0.86rem; line-height: 1.55; color: var(--ink-700); }
+.admin-shell .demo-banner strong { color: var(--emerald-800); font-weight: 600; }
+
+/* ---- Disabled write controls (mode demo) ---- */
+.admin-shell button:disabled, .admin-shell .add-btn:disabled, .admin-shell .btn-danger:disabled, .admin-shell .icon-mini:disabled, .admin-shell .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+.admin-shell .add-btn:disabled:hover { background: var(--emerald-700); color: var(--cream-50); }
+
 .admin-shell .content { padding: 32px; display: flex; flex-direction: column; gap: 28px; }
 .admin-shell .page-head { display: flex; justify-content: space-between; align-items: flex-end; }
 .admin-shell .page-head h1 { font-size: 1.9rem; font-weight: 500; line-height: 1; }
@@ -297,6 +307,7 @@
   .admin-shell .admin-burger svg { width: 18px; height: 18px; }
   .admin-shell .admin-topbar { padding: 14px 16px; gap: 12px; }
   .admin-shell .content { padding: 18px 16px; gap: 22px; }
+  .admin-shell .demo-banner { margin: 16px 16px -4px; }
   .admin-shell .page-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .admin-shell .page-head h1 { font-size: 1.6rem; }
   .admin-shell .stats { grid-template-columns: 1fr; }

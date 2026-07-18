@@ -6,6 +6,7 @@ import { updateInquiryStatus } from "@/lib/actions/admin";
 import { deleteInquiryAction } from "@/lib/actions/cms";
 import { waLink } from "@/lib/site";
 import { ConfirmSubmit } from "@/components/admin/confirm-submit";
+import { DEMO_READONLY, DEMO_READONLY_MESSAGE } from "@/lib/demo";
 import { ArrowLeft, MessageSquare, Trash, Check } from "@/components/icons";
 
 export const metadata = { title: "Detail Inquiry" };
@@ -61,6 +62,8 @@ export default async function InquiryDetailPage({ params }: { params: Promise<{ 
                     <button
                       className={inq.status === st.key ? "add-btn" : "btn-secondary"}
                       style={{ width: "100%", justifyContent: "flex-start" }}
+                      disabled={DEMO_READONLY}
+                      title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : undefined}
                     >
                       {inq.status === st.key && <Check width={14} height={14} />}
                       <span className={`pill ${st.cls}`} style={{ pointerEvents: "none" }}>{st.label}</span>

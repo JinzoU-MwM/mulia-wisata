@@ -3,6 +3,7 @@ import { getAllPackages } from "@/lib/queries";
 import { togglePackageVisibility } from "@/lib/actions/admin";
 import { deletePackageAction } from "@/lib/actions/cms";
 import { ConfirmSubmit } from "@/components/admin/confirm-submit";
+import { DEMO_READONLY, DEMO_READONLY_MESSAGE } from "@/lib/demo";
 import { Plus, Edit, Trash } from "@/components/icons";
 
 export const metadata = { title: "Paket Perjalanan" };
@@ -45,7 +46,11 @@ export default async function PackagesPage() {
                 <div><span className={`pill ${pill.cls}`}>{pill.label}</span></div>
                 <div className="toggle">
                   <form action={togglePackageVisibility.bind(null, pkg.id, !pkg.isVisible)}>
-                    <button className={`switch ${pkg.isVisible ? "on" : ""}`} title="Tampil/Sembunyi" />
+                    <button
+                      className={`switch ${pkg.isVisible ? "on" : ""}`}
+                      title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : "Tampil/Sembunyi"}
+                      disabled={DEMO_READONLY}
+                    />
                   </form>
                   <span className="lbl">{pkg.isVisible ? "Tampil" : "Sembunyi"}</span>
                 </div>

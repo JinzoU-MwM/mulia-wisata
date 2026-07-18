@@ -2,23 +2,18 @@
   "name": "mulia-indah-wisata",
   "version": "1.0.0",
   "private": true,
-  "description": "Mulia Indah Wisata — Travel Umrah & Haji (Next.js + Drizzle + Better Auth)",
+  "description": "Mulia Indah Wisata — Travel Umrah & Haji (Next.js, demo statis tanpa database)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "db:setup": "tsx src/lib/db/setup.ts",
-    "db:seed": "tsx src/lib/db/seed.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "drizzle-orm": "^0.45.2",
-    "@libsql/client": "^0.15.4",
-    "better-auth": "^1.2.9",
-    "dotenv": "^16.4.7"
+    "drizzle-orm": "^0.45.2"
   },
   "devDependencies": {
     "typescript": "^5.7.3",
@@ -26,8 +21,6 @@
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "tailwindcss": "^4.0.0",
-    "@tailwindcss/postcss": "^4.0.0",
-    "drizzle-kit": "^0.31.1",
-    "tsx": "^4.19.2"
+    "@tailwindcss/postcss": "^4.0.0"
   }
 }

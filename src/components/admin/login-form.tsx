@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { signIn } from "@/lib/auth-client";
+import { loginAction } from "@/lib/actions/auth-actions";
 import { ArrowLeft, Mail, Lock, Eye, ArrowRight, Shield } from "@/components/icons";
 
 export function LoginForm() {
@@ -19,12 +19,7 @@ export function LoginForm() {
     e.preventDefault();
     setError("");
     setLoading(true);
-    const { error } = await signIn.email({
-      email,
-      password,
-      rememberMe: remember,
-      callbackURL: "/admin/dashboard",
-    });
+    const { error } = await loginAction(email, password);
     if (error) {
       setError(error.message ?? "Email atau kata sandi salah.");
       setLoading(false);
@@ -97,8 +92,8 @@ export function LoginForm() {
       <div className="secure-note">
         <Shield />
         <div>
-          Sesi Anda akan dienkripsi dengan Better Auth — HTTP-Only cookies dengan SameSite=Strict.
-          Aktivitas mencurigakan akan otomatis menonaktifkan sesi.
+          Ini adalah versi demo — sesi disimpan pada cookie HTTP-Only dan seluruh data panel
+          bersifat read-only, sehingga aman untuk dijelajahi.
         </div>
       </div>
 
@@ -109,7 +104,7 @@ export function LoginForm() {
       </p>
 
       <div className="login-hint">
-        Demo: <strong>admin@muhiyahglobaltravel.id</strong> / <strong>MuhiyahGlobal#2026</strong>
+        Demo: <strong>admin@muhiyahglobaltravel.id</strong> / <strong>demo1234</strong>
       </div>
     </div>
   );

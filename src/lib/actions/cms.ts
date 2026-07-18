@@ -1,170 +1,70 @@
 "use server";
 
-import { randomUUID } from "crypto";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import { eq, ne } from "drizzle-orm";
-import { db } from "@/lib/db";
-import { packages, posts, faqs, inquiries } from "@/lib/db/schema";
 import { requireAuth } from "@/lib/auth-server";
-import { slugify } from "@/lib/slug";
-import {
-  linesToArr, parasToArr, parseItinerary, parseHotels, parseDepartures,
-} from "@/lib/package-detail-format";
+import { DEMO_READONLY_MESSAGE } from "@/lib/demo";
 
-const s = (fd: FormData, k: string) => String(fd.get(k) ?? "").trim();
-const bool = (fd: FormData, k: string) => fd.get(k) != null;
-const intOrNull = (v: string) => {
-  const n = parseInt(v.replace(/[^\d-]/g, ""), 10);
-  return Number.isFinite(n) ? n : null;
-};
-const list = (v: string) =>
-  v.split(",").map((x) => x.trim()).filter(Boolean);
-
-function revalidatePublic(paths: string[]) {
-  for (const p of paths) revalidatePath(p);
+/**
+ * Mode demo — data bersifat read-only.
+ *
+ * Situs ini berjalan tanpa database: seluruh konten dibaca dari `static-data.ts`.
+ * Setiap aksi di bawah tetap mempertahankan nama, signature, dan bentuk hasilnya
+ * agar halaman admin tetap berfungsi, namun tidak menulis apa pun dan tidak
+ * pernah melempar error.
+ */
+function noop(action: string) {
+  console.info(`[demo] ${action} diabaikan — ${DEMO_READONLY_MESSAGE}`);
 }
 
 /* ============================ PACKAGES ============================ */
-function packageValues(fd: FormData) {
-  const title = s(fd, "title");
-  return {
-    slug: s(fd, "slug") || slugify(title),
-    title,
-    type: s(fd, "type") || "Umrah",
-    category: s(fd, "category") || "umrah",
-    description: s(fd, "description"),
-    longDescription: s(fd, "longDescription") || null,
-    price: intOrNull(s(fd, "price")),
-    priceLabel: s(fd, "priceLabel") || "Hubungi kami",
-    strikeLabel: s(fd, "strikeLabel") || null,
-    priceFromLabel: s(fd, "priceFromLabel") || "Mulai dari",
-    durationDays: intOrNull(s(fd, "durationDays")) ?? 0,
-    durationLabel: s(fd, "durationLabel") || "—",
-    imageUrl: s(fd, "imageUrl"),
-    hotelStar: s(fd, "hotelStar") || null,
-    airline: s(fd, "airline") || null,
-    maxJamaah: s(fd, "maxJamaah") || null,
-    badges: list(s(fd, "badges")),
-    status: s(fd, "status") || "Aktif",
-    isSpecialOffer: bool(fd, "isSpecialOffer"),
-    isVisible: bool(fd, "isVisible"),
-    // ---- editable detail-page content ----
-    gallery: linesToArr(s(fd, "gallery")),
-    overview: parasToArr(s(fd, "overview")),
-    itinerary: parseItinerary(s(fd, "itinerary")),
-    included: linesToArr(s(fd, "included")),
-    excluded: linesToArr(s(fd, "excluded")),
-    hotels: parseHotels(s(fd, "hotels")),
-    requirements: linesToArr(s(fd, "requirements")),
-    departures: parseDepartures(s(fd, "departures")),
-    promoNote: s(fd, "promoNote") || null,
-    perLabel: s(fd, "perLabel") || null,
-  };
+export async function createPackage(_fd: FormData) {
+  await requireAuth();
+  noop("createPackage");
 }
 
-export async function createPackage(fd: FormData) {
+export async function updatePackage(_id: string, _fd: FormData) {
   await requireAuth();
-  await db.insert(packages).values({ id: randomUUID(), ...packageValues(fd) });
-  revalidatePublic(["/admin/packages", "/admin/dashboard", "/paket", "/"]);
-  redirect("/admin/packages");
+  noop("updatePackage");
 }
 
-export async function updatePackage(id: string, fd: FormData) {
+export async function deletePackageAction(_id: string) {
   await requireAuth();
-  await db.update(packages).set(packageValues(fd)).where(eq(packages.id, id));
-  revalidatePublic(["/admin/packages", "/admin/dashboard", "/paket", "/", `/paket/${s(fd, "slug")}`]);
-  redirect("/admin/packages");
-}
-
-export async function deletePackageAction(id: string) {
-  await requireAuth();
-  await db.update(inquiries).set({ packageId: null }).where(eq(inquiries.packageId, id));
-  await db.delete(packages).where(eq(packages.id, id));
-  revalidatePublic(["/admin/packages", "/admin/dashboard", "/paket", "/"]);
-  redirect("/admin/packages");
+  noop("deletePackageAction");
 }
 
 /* ============================ POSTS ============================ */
-function postValues(fd: FormData) {
-  const title = s(fd, "title");
-  const dateStr = s(fd, "publishedAt");
-  return {
-    slug: s(fd, "slug") || slugify(title),
-    title,
-    excerpt: s(fd, "excerpt") || null,
-    content: s(fd, "content") || null,
-    thumbnailUrl: s(fd, "thumbnailUrl") || null,
-    category: s(fd, "category") || null,
-    author: s(fd, "author") || null,
-    authorRole: s(fd, "authorRole") || null,
-    readMinutes: intOrNull(s(fd, "readMinutes")),
-    isFeatured: bool(fd, "isFeatured"),
-    publishedAt: dateStr ? new Date(dateStr) : new Date(),
-  };
+export async function createPost(_fd: FormData) {
+  await requireAuth();
+  noop("createPost");
 }
 
-export async function createPost(fd: FormData) {
+export async function updatePost(_id: string, _fd: FormData) {
   await requireAuth();
-  const values = postValues(fd);
-  if (values.isFeatured) await db.update(posts).set({ isFeatured: false });
-  await db.insert(posts).values({ id: randomUUID(), ...values });
-  revalidatePublic(["/admin/posts", "/admin/dashboard", "/berita"]);
-  redirect("/admin/posts");
+  noop("updatePost");
 }
 
-export async function updatePost(id: string, fd: FormData) {
+export async function deletePostAction(_id: string) {
   await requireAuth();
-  const values = postValues(fd);
-  if (values.isFeatured) await db.update(posts).set({ isFeatured: false }).where(ne(posts.id, id));
-  await db.update(posts).set(values).where(eq(posts.id, id));
-  revalidatePublic(["/admin/posts", "/admin/dashboard", "/berita"]);
-  redirect("/admin/posts");
-}
-
-export async function deletePostAction(id: string) {
-  await requireAuth();
-  await db.delete(posts).where(eq(posts.id, id));
-  revalidatePublic(["/admin/posts", "/admin/dashboard", "/berita"]);
-  redirect("/admin/posts");
+  noop("deletePostAction");
 }
 
 /* ============================ FAQS ============================ */
-function faqValues(fd: FormData) {
-  return {
-    question: s(fd, "question"),
-    answer: s(fd, "answer"),
-    category: s(fd, "category") || "Umum",
-    displayOrder: intOrNull(s(fd, "displayOrder")) ?? 0,
-    updatedAt: new Date(),
-  };
+export async function createFaq(_fd: FormData) {
+  await requireAuth();
+  noop("createFaq");
 }
 
-export async function createFaq(fd: FormData) {
+export async function updateFaq(_id: string, _fd: FormData) {
   await requireAuth();
-  await db.insert(faqs).values({ id: randomUUID(), ...faqValues(fd) });
-  revalidatePublic(["/admin/faqs", "/admin/dashboard", "/kontak"]);
-  redirect("/admin/faqs");
+  noop("updateFaq");
 }
 
-export async function updateFaq(id: string, fd: FormData) {
+export async function deleteFaqAction(_id: string) {
   await requireAuth();
-  await db.update(faqs).set(faqValues(fd)).where(eq(faqs.id, id));
-  revalidatePublic(["/admin/faqs", "/admin/dashboard", "/kontak"]);
-  redirect("/admin/faqs");
-}
-
-export async function deleteFaqAction(id: string) {
-  await requireAuth();
-  await db.delete(faqs).where(eq(faqs.id, id));
-  revalidatePublic(["/admin/faqs", "/admin/dashboard", "/kontak"]);
-  redirect("/admin/faqs");
+  noop("deleteFaqAction");
 }
 
 /* ============================ INQUIRIES ============================ */
-export async function deleteInquiryAction(id: string) {
+export async function deleteInquiryAction(_id: string) {
   await requireAuth();
-  await db.delete(inquiries).where(eq(inquiries.id, id));
-  revalidatePublic(["/admin/inquiries", "/admin/dashboard"]);
-  redirect("/admin/inquiries");
+  noop("deleteInquiryAction");
 }

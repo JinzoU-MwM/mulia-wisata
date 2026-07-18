@@ -5,6 +5,7 @@ import { updateInquiryStatus } from "@/lib/actions/admin";
 import { deleteInquiryAction } from "@/lib/actions/cms";
 import { waLink } from "@/lib/site";
 import { ConfirmSubmit } from "@/components/admin/confirm-submit";
+import { DEMO_READONLY, DEMO_READONLY_MESSAGE } from "@/lib/demo";
 import { Eye, Check, MessageSquare, Trash } from "@/components/icons";
 
 export const metadata = { title: "Inquiry / Lead" };
@@ -82,7 +83,7 @@ export default async function InquiriesPage({
                       <div className="action-btns">
                         <Link className="icon-mini" title="Lihat detail" href={`/admin/inquiries/${inq.id}`}><Eye /></Link>
                         <form action={updateInquiryStatus.bind(null, inq.id, nextStatus(inq.status))}>
-                          <button className="icon-mini" title="Ubah status"><Check /></button>
+                          <button className="icon-mini" title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : "Ubah status"} disabled={DEMO_READONLY}><Check /></button>
                         </form>
                         <a className="icon-mini" title="Balas via WhatsApp" style={{ color: "#25d366" }} href={waLink(`Assalamualaikum ${inq.name}, terima kasih atas inquiry Anda di Muhiyah Global Travel.`)} target="_blank" rel="noopener noreferrer"><MessageSquare /></a>
                         <form action={deleteInquiryAction.bind(null, inq.id)}>

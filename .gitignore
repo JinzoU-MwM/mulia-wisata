@@ -11,19 +11,9 @@ next-env.d.ts
 # production
 /build
 
-# database
-*.db
-*.db-journal
-local.db*
-
-# uploaded media (keep the folder, ignore its contents)
-/uploads/*
-!/uploads/.gitkeep
-
 # env
 .env
 .env*.local
-.env.production*
 
 # design handoff bundle (not part of the app)
 /.design_tmp

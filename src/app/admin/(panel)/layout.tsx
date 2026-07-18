@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/admin.css";
 import { requireAuth } from "@/lib/auth-server";
+import { DEMO_READONLY } from "@/lib/demo";
 import { getDashboardStats } from "@/lib/queries";
 import { AdminShell } from "@/components/admin/admin-shell";
 
@@ -24,6 +25,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
       }}
       adminName={session.user.name || "Admin"}
       adminEmail={session.user.email}
+      demoReadOnly={DEMO_READONLY}
     >
       {children}
     </AdminShell>

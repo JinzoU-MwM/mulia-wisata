@@ -1,8 +1,12 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { DEMO_READONLY, DEMO_READONLY_MESSAGE } from "@/lib/demo";
 
-/** Submit button that asks for confirmation before allowing the form to post. */
+/**
+ * Submit button that asks for confirmation before allowing the form to post.
+ * Dinonaktifkan selama mode demo agar tidak ada aksi hapus yang terlihat rusak.
+ */
 export function ConfirmSubmit({
   children,
   className,
@@ -18,7 +22,8 @@ export function ConfirmSubmit({
     <button
       type="submit"
       className={className}
-      title={title}
+      title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : title}
+      disabled={DEMO_READONLY}
       onClick={(e) => {
         if (!window.confirm(message)) e.preventDefault();
       }}

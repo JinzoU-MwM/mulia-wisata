@@ -43,8 +43,8 @@ export default async function SettingsPage() {
             <div className="dfield" style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
               <ShieldCheck width={20} height={20} style={{ stroke: "var(--emerald-700)", fill: "none", flexShrink: 0, marginTop: 2 }} />
               <div className="v" style={{ fontSize: "0.9rem", color: "var(--ink-700)" }}>
-                Sesi diamankan dengan Better Auth — cookie HTTP-Only, SameSite=Strict, masa aktif 7 hari dengan
-                perpanjangan otomatis. Semua perubahan data memerlukan sesi valid.
+                Mode demo — data bersifat read-only. Sesi disimpan pada cookie HTTP-Only dengan masa aktif
+                7 hari, dan seluruh aksi simpan, unggah, maupun hapus dinonaktifkan.
               </div>
             </div>
             <div className="dfield">
@@ -58,8 +58,8 @@ export default async function SettingsPage() {
             <div className="dfield">
               <div className="k">Catatan</div>
               <div className="v" style={{ fontSize: "0.86rem", color: "var(--ink-500)" }}>
-                Penambahan admin baru &amp; ganti kata sandi dapat dikembangkan lebih lanjut melalui Better Auth
-                (pendaftaran publik dinonaktifkan demi keamanan).
+                Versi demo ini berjalan tanpa database — seluruh konten dibaca dari data contoh yang
+                dibekukan. Penambahan admin &amp; ganti kata sandi tersedia pada versi produksi.
               </div>
             </div>
           </div>

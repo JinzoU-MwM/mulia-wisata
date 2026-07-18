@@ -19,8 +19,6 @@ const CATEGORIES = [
 
 const TAGS = ["#manasik", "#raudhah", "#visa-saudi", "#ramadhan", "#kesehatan", "#tawaf", "#ihram", "#doa", "#ziarah", "#nabawi"];
 
-export const dynamic = "force-dynamic";
-
 export default async function BeritaPage() {
   const all = await getPosts();
   const featured = await getFeaturedPost();

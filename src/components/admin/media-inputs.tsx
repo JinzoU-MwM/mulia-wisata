@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import type { Hotel } from "@/lib/package-detail-types";
+import { DEMO_READONLY, DEMO_READONLY_MESSAGE } from "@/lib/demo";
 
 export async function uploadImage(file: File): Promise<string> {
   const fd = new FormData();
@@ -66,7 +67,13 @@ export function ImageUpload({
         </div>
       )}
       <div className="img-actions">
-        <button type="button" className="btn-secondary" onClick={() => ref.current?.click()} disabled={busy}>
+        <button
+          type="button"
+          className="btn-secondary"
+          onClick={() => ref.current?.click()}
+          disabled={busy || DEMO_READONLY}
+          title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : undefined}
+        >
           {busy ? "Mengunggah…" : url ? "Ganti Gambar" : "Unggah Gambar"}
         </button>
         <input ref={ref} type="file" accept="image/*" hidden onChange={onFile} />
@@ -111,7 +118,13 @@ export function GalleryUpload({ name, defaultValue }: { name: string; defaultVal
             <button type="button" className="img-remove" title="Hapus" onClick={() => remove(i)}>×</button>
           </div>
         ))}
-        <button type="button" className="gallery-add" onClick={() => ref.current?.click()} disabled={busy}>
+        <button
+          type="button"
+          className="gallery-add"
+          onClick={() => ref.current?.click()}
+          disabled={busy || DEMO_READONLY}
+          title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : undefined}
+        >
           {busy ? "Mengunggah…" : "+ Tambah Foto"}
         </button>
       </div>

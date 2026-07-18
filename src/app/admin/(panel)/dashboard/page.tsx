@@ -3,6 +3,7 @@ import { getDashboardStats, getInquiries, getAllPackages } from "@/lib/queries";
 import { requireAuth } from "@/lib/auth-server";
 import { timeAgoId } from "@/lib/format";
 import { updateInquiryStatus } from "@/lib/actions/admin";
+import { DEMO_READONLY, DEMO_READONLY_MESSAGE } from "@/lib/demo";
 import {
   MessageSquare, FileText, HelpCircle, Sparkle, Video, Download, Plus, ChevronDown,
   UsersWide, Clock, Eye, Check, Edit, ExternalLink,
@@ -147,7 +148,7 @@ export default async function AdminDashboardPage() {
                       <div className="action-btns">
                         <Link className="icon-mini" title="Lihat detail" href={`/admin/inquiries/${inq.id}`}><Eye /></Link>
                         <form action={updateInquiryStatus.bind(null, inq.id, nextStatus(inq.status))}>
-                          <button className="icon-mini" title="Ubah status"><Check /></button>
+                          <button className="icon-mini" title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : "Ubah status"} disabled={DEMO_READONLY}><Check /></button>
                         </form>
                       </div>
                     </td>

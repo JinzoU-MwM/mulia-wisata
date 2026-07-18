@@ -37,7 +37,7 @@ export default async function AdminLoginPage() {
 
           <div className="art-footer">
             <span>© 2026 Muhiyah Global Travel</span>
-            <span><span className="dot">·</span>Better Auth Secured<span className="dot">·</span>v2.4.1</span>
+            <span><span className="dot">·</span>Demo Read-Only<span className="dot">·</span>v2.4.1</span>
           </div>
         </div>
 

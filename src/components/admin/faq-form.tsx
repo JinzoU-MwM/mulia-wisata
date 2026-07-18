@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Faq } from "@/lib/db/schema";
 import { Check } from "@/components/icons";
+import { DEMO_READONLY, DEMO_READONLY_MESSAGE } from "@/lib/demo";
 
 const CATEGORIES = ["Pendaftaran", "Visa", "Pembayaran", "Persiapan", "Ibadah", "Umum"];
 
@@ -37,7 +38,7 @@ export function FaqForm({
       </div>
       <div className="form-actions">
         <Link href="/admin/faqs" className="btn-secondary">Batal</Link>
-        <button type="submit" className="add-btn"><Check /> {submitLabel}</button>
+        <button type="submit" className="add-btn" disabled={DEMO_READONLY} title={DEMO_READONLY ? DEMO_READONLY_MESSAGE : undefined}><Check /> {submitLabel}</button>
       </div>
     </form>
   );
